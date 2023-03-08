@@ -9,5 +9,5 @@ RUN --mount=type=cache,id=gobuild,target=/root/.cache/go-build \
 
 FROM gcr.io/distroless/base
 COPY --from=0 /go/src/github.com/mccutchen/go-httpbin/dist/go-httpbin* /bin/
-EXPOSE 8080
-CMD ["/bin/go-httpbin"]
+EXPOSE 80
+CMD ["/bin/go-httpbin", "-port", "80"]
